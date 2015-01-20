@@ -95,7 +95,7 @@
 						@foreach (FileInfo file in info.EnumerateFiles())
 						{
 							<li>
-								<img src="~/img/@version/@info.Name/@file.Name" alt="@Path.GetFileNameWithoutExtension(file.Name)" />
+								<img src="/img/@version/@info.Name/@file.Name" alt="@Path.GetFileNameWithoutExtension(file.Name)" />
 								<span>@Path.GetFileNameWithoutExtension(file.Name)</span>
 							</li>
 						}
