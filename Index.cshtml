@@ -1,0 +1,111 @@
+﻿@using System.IO;
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Visual Studio Glyph List</title>
+	<style>
+		body {
+			font: 11pt/1.2 arial;
+		}
+
+		header {
+			text-align: center;
+			font-size: 1.5em;
+		}
+
+		h1 {
+			font-size: 2em;
+		}
+
+		h2 {
+			font-size: 1em;
+		}
+
+		nav {
+			text-align: center;
+			font-size: 1.3em;
+			margin-bottom: 1em;
+		}
+
+			nav ul {
+				list-style: none;
+				padding: 0;
+				display: inline;
+			}
+
+			nav li {
+				display: inline-block;
+				padding: .5em;
+			}
+
+		[role="main"] {
+			-moz-column-width: 220px;
+			-webkit-column-width: 220px;
+			column-width: 220px;
+		}
+
+			[role="main"] div {
+				display: inline-block;
+				width: 100%;
+			}
+
+			[role="main"] ul {
+				list-style: none;
+				margin: 0;
+				padding-left: 10px;
+			}
+
+				[role="main"] ul span {
+					color: gray;
+				}
+
+					[role="main"] ul span:hover {
+						color: black;
+					}
+	</style>
+</head>
+<body>
+
+	<header>
+		<h1>Visual Studio Glyph List</h1>
+		<p>
+			This website shows the images contained in Visual Studio's <strong>StandardGlyphGroup</strong>.
+		</p>
+	</header>
+
+	<nav>
+		<strong>Visual Studio: </strong>
+		<ul>
+			<li><a href="/2013">2013</a></li>
+			<li><a href="/2015">2015</a></li>
+		</ul>
+	</nav>
+
+	<div role="main">
+		@{
+			string version = Request.QueryString["version"] ?? "2013";
+
+			foreach (string dir in Directory.EnumerateDirectories(Server.MapPath("~/img/" + version)))
+			{
+				DirectoryInfo info = new DirectoryInfo(dir);
+				<div>
+					<h2>@info.Name</h2>
+					<ul>
+						@foreach (FileInfo file in info.EnumerateFiles())
+						{
+							<li>
+								<img src="~/img/@version/@info.Name/@file.Name" alt="@Path.GetFileNameWithoutExtension(file.Name)" />
+								<span>@Path.GetFileNameWithoutExtension(file.Name)</span>
+							</li>
+						}
+					</ul>
+				</div>
+			}
+		}
+	</div>
+
+</body>
+
+
+</html>
