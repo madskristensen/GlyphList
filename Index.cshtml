@@ -7,6 +7,8 @@
 	<style>
 		body {
 			font: 11pt/1.2 arial;
+			margin: 0;
+			padding: 0;
 		}
 
 		header {
@@ -43,6 +45,7 @@
 			-moz-column-width: 220px;
 			-webkit-column-width: 220px;
 			column-width: 220px;
+			margin: 1em;
 		}
 
 			[role="main"] div {
@@ -63,6 +66,21 @@
 					[role="main"] ul span:hover {
 						color: black;
 					}
+
+		footer {
+			width: 100%;
+			background: #333;
+			color: #fff;
+			padding: 1em 0;
+			text-align: center;
+			clear: both;
+			margin-top: 4em;
+		}
+
+			footer a {
+				color: #fff;
+				text-decoration: none;
+			}
 	</style>
 </head>
 <body>
@@ -84,7 +102,16 @@
 
 	<div role="main">
 		@{
-			string version = Request.QueryString["version"] ?? "2013";
+			string version = Request.QueryString["version"];
+
+			if (string.IsNullOrEmpty(version))
+			{
+				Response.Redirect("/2013", true);
+			}
+
+			Response.Cache.SetValidUntilExpires(true);
+			Response.Cache.SetExpires(DateTime.Now.AddYears(1));
+			Response.Cache.SetCacheability(HttpCacheability.Public);
 
 			foreach (string dir in Directory.EnumerateDirectories(Server.MapPath("~/img/" + version)))
 			{
@@ -95,7 +122,7 @@
 						@foreach (FileInfo file in info.EnumerateFiles())
 						{
 							<li>
-								<img src="/img/@version/@info.Name/@file.Name" alt="@Path.GetFileNameWithoutExtension(file.Name)" />
+								<img src="/img/@version/@info.Name/@file.Name" />
 								<span>@Path.GetFileNameWithoutExtension(file.Name)</span>
 							</li>
 						}
@@ -105,7 +132,9 @@
 		}
 	</div>
 
+	<footer>
+		<p>Copyright &copy; 2015 <a href="http://madskristensen.net">Mads Kristensen</a></p>
+	</footer>
+
 </body>
-
-
 </html>
