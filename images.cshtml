@@ -5,13 +5,25 @@
 	Page.Description = "This website shows the images contained in Visual Studio's IvsImageService";
 }
 
-<ul>
-	@{
-		var folder = Directory.EnumerateFiles(Server.MapPath("~/img/images"));
-
-		foreach (FileInfo info in folder.Select(f => new FileInfo(f)))
+@{
+	var folder = Directory.EnumerateFiles(Server.MapPath("~/img/images"));
+	char letter = '0';
+	foreach (FileInfo info in folder.Select(f => new FileInfo(f)))
+	{
+		if (info.Name[0] != letter)
 		{
-			<li><img src="~/img/loading.gif" data-lazy="/img/images/@info.Name" alt="" /> @Path.GetFileNameWithoutExtension(info.Name)</li>
+			if (letter != '0')
+			{
+				@Html.Raw("</ul>")
+			}
+			<h3 id="@info.Name[0].ToString().ToLowerInvariant()"><a href="#@info.Name[0].ToString().ToLowerInvariant()">@info.Name[0]</a></h3>
+			@Html.Raw("<ul class=\"images\">")
+		}
+		<li><img src="/img/loading.gif" data-lazy="/img/images/@info.Name" alt="" /> @Path.GetFileNameWithoutExtension(info.Name)</li>
+		if (info.Name[0] != letter)
+		{
+
+			letter = info.Name[0];
 		}
 	}
-</ul>
+}
