@@ -1,0 +1,17 @@
+﻿@using System.IO;
+@{
+	Layout = "~/_layout.cshtml";
+	Page.Title = "Visual Studio Image List";
+	Page.Description = "This website shows the images contained in Visual Studio's IvsImageService";
+}
+
+<ul>
+	@{
+		var folder = Directory.EnumerateFiles(Server.MapPath("~/img/images"));
+
+		foreach (FileInfo info in folder.Select(f => new FileInfo(f)))
+		{
+			<li><img src="/img/images/@info.Name" /> @Path.GetFileNameWithoutExtension(info.Name)</li>
+		}
+	}
+</ul>

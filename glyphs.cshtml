@@ -1,0 +1,25 @@
+﻿@using System.IO;
+@{
+	Layout = "~/_layout.cshtml";
+	Page.Title = "Visual Studio Glyph List";
+	Page.Description = "This website shows the images contained in Visual Studio's StandardGlyphGroup.";
+}
+
+@{
+	var folder = Directory.EnumerateDirectories(Server.MapPath("~/img/glyphs"));
+
+	foreach (string dir in folder)
+	{
+		DirectoryInfo info = new DirectoryInfo(dir);
+
+		<div>
+			<h2>@info.Name</h2>
+			<ul>
+				@foreach (FileInfo file in info.EnumerateFiles())
+				{
+					<li><img src="/img/glyphs/@info.Name/@file.Name" /> @Path.GetFileNameWithoutExtension(file.Name)</li>
+				}
+			</ul>
+		</div>
+	}
+}
