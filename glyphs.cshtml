@@ -17,7 +17,7 @@
 			<ul>
 				@foreach (FileInfo file in info.EnumerateFiles())
 				{
-					<li><img src="/img/glyphs/@info.Name/@file.Name" /> @Path.GetFileNameWithoutExtension(file.Name)</li>
+					<li><img src ="~/img/loading.gif" data-lazy="/img/glyphs/@info.Name/@file.Name" alt="" /> @Path.GetFileNameWithoutExtension(file.Name)</li>
 				}
 			</ul>
 		</div>

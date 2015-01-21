@@ -11,7 +11,7 @@
 
 		foreach (FileInfo info in folder.Select(f => new FileInfo(f)))
 		{
-			<li><img src="/img/images/@info.Name" /> @Path.GetFileNameWithoutExtension(info.Name)</li>
+			<li><img src="~/img/loading.gif" data-lazy="/img/images/@info.Name" alt="" /> @Path.GetFileNameWithoutExtension(info.Name)</li>
 		}
 	}
 </ul>

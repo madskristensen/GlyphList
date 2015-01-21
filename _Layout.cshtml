@@ -15,7 +15,7 @@
 	<meta name="description" content="@Page.Description" />
 	<style>
 		body {
-			font: 11pt/1.2 arial;
+			font-family: Arial, Helvetica, sans-serif;
 			margin: 0;
 			padding: 0;
 		}
@@ -59,11 +59,12 @@
 				padding: .5em;
 			}
 
-			[role="main"] {
-			-moz-column-width: 220px;
-			-webkit-column-width: 220px;
-			column-width: 220px;
+		[role="main"] {
+			-moz-column-width: 250px;
+			-webkit-column-width: 250px;
+			column-width: 250px;
 			margin: 1em;
+			line-height: 1.7;
 		}
 
 			[role="main"] div {
@@ -112,22 +113,24 @@
 	<header>
 		<h1>@Page.Title</h1>
 		<p>@Page.Description</p>
-		</header>
+	</header>
 
-		<nav>
-			<ul>
-				<li><a href="/glyphs">StandardGlyphGroup</a></li>
-				<li><a href="/images">KnownMonikers</a></li>
-			</ul>
-		</nav>
+	<nav>
+		<ul>
+			<li><a href="/glyphs">StandardGlyphGroup</a></li>
+			<li><a href="/images">KnownMonikers</a></li>
+		</ul>
+	</nav>
 
-		<div role="main">
-			@RenderBody()
-		</div>
+	<div role="main">
+		@RenderBody()
+	</div>
 
-		<footer>
-			<p>Copyright &copy; 2015 <a href="http://madskristensen.net">Mads Kristensen</a></p>
-			<p>Open source on <a href="https://github.com/madskristensen/GlyphList/">GitHub</a></p>
-		</footer>
-	</body>
+	<footer>
+		<p>Copyright &copy; 2015 <a href="http://madskristensen.net">Mads Kristensen</a></p>
+		<p>Open source on <a href="https://github.com/madskristensen/GlyphList/">GitHub</a></p>
+	</footer>
+
+	<script src="~/lazy.js" async></script>
+</body>
 </html>
