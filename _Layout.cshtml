@@ -33,6 +33,12 @@
 			font-size: 1em;
 		}
 
+		h3 {
+			font-size: 3em;
+			margin: 0 0 0 .5em;
+			line-height: normal;
+		}
+
 		a {
 			color: cornflowerblue;
 			text-decoration: none;
@@ -42,10 +48,15 @@
 				text-decoration: underline;
 			}
 
+			ul {
+				list-style: none;
+			}
+
 		nav {
 			text-align: center;
 			font-size: 1.3em;
 			margin-bottom: 1em;
+			background-color: lightgray;
 		}
 
 			nav ul {
@@ -56,7 +67,7 @@
 
 			nav li {
 				display: inline-block;
-				padding: .5em;
+				padding: .5em 1.5em;
 			}
 
 		[role="main"] {
@@ -64,28 +75,22 @@
 			line-height: 1.7;
 		}
 
-		ul.images,
-		div.glyphs {
-			-moz-column-width: 250px;
-			-webkit-column-width: 250px;
-			column-width: 250px;
-		}
+			[role="main"] .images,
+			[role="main"] .glyphs {
+				-moz-column-width: 250px;
+				-webkit-column-width: 250px;
+				column-width: 250px;
+			}
 
-		div.glyphs > div {
-			display: inline-block;
-			width: 100%;
-		}
+			[role="main"] div.glyphs > div {
+				display: inline-block;
+				width: 100%;
+			}
 
-		h3{
-			font-size: 3em;
-			margin: 0 0 0 .5em;
-			line-height: normal;
-		}
-
-		[role="main"] img {
-			width: 16px;
-			height: 16px;
-		}
+			[role="main"] img {
+				width: 16px;
+				height: 16px;
+			}
 
 		footer {
 			width: 100%;
@@ -101,6 +106,11 @@
 				color: #fff;
 				text-decoration: none;
 			}
+
+		:target + ul {
+			background-color: #dde7f2;
+			border-radius: 10px;
+		}
 	</style>
 </head>
 <body>
