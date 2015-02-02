@@ -7,7 +7,7 @@
 
 <div class="glyphs">
 	@{
-		var folder = Directory.EnumerateDirectories(Server.MapPath("~/img/glyphs"));
+		var folder = Directory.EnumerateDirectories(Server.MapPath("~/img/glyphs")).Where(f => !f.Contains("_sprite"));
 
 		foreach (string dir in folder)
 		{
@@ -16,7 +16,7 @@
 			<div>
 				<h2 id="@info.Name"><a href="#@info.Name">@info.Name</a></h2>
 				<ul>
-					@foreach (FileInfo file in info.EnumerateFiles().Where(f => f.Name != "_sprite.png"))
+					@foreach (FileInfo file in info.EnumerateFiles())
 					{
 						<li>
 							<span style="background-image: url('/img/glyphs/_sprites/@(info.Name).png'); background-position: 0px @(count)px"></span>
