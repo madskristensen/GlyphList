@@ -18,11 +18,11 @@
 				<ul>
 					@foreach (FileInfo file in info.EnumerateFiles().Where(f => f.Name != "_sprite.png"))
 					{
-						count += 16;
 						<li>
-							<span style="background-image: url('/img/glyphs/_sprites/@(info.Name).png'); background-position: 0px -@(count)px"></span>
+							<span style="background-image: url('/img/glyphs/_sprites/@(info.Name).png'); background-position: 0px @(count)px"></span>
 							@Path.GetFileNameWithoutExtension(file.Name)
 						</li>
+						count -= 16;
 					}
 				</ul>
 			</div>
