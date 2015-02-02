@@ -48,9 +48,9 @@
 				text-decoration: underline;
 			}
 
-			ul {
-				list-style: none;
-			}
+		ul {
+			list-style: none;
+		}
 
 		nav {
 			text-align: center;
@@ -80,6 +80,13 @@
 				-moz-column-width: 250px;
 				-webkit-column-width: 250px;
 				column-width: 250px;
+			}
+
+			[role="main"] li span {
+				background-repeat: no-repeat;
+				display: inline-block;
+				width: 16px;
+				height: 16px;
 			}
 
 			[role="main"] div.glyphs > div {
@@ -132,10 +139,9 @@
 	</div>
 
 	<footer>
-		<p>Copyright &copy; 2015 <a href="http://madskristensen.net">Mads Kristensen</a></p>
+		<p>Powered by <a href="https://visualstudiogallery.msdn.microsoft.com/b6cb739c-359d-4cce-a06d-9c75fe55dc51">Glyph Exporter</a></p>
+		<p>Copyright &copy; @DateTime.Now.Year <a href="http://madskristensen.net">Mads Kristensen</a></p>
 		<p>Open source on <a href="https://github.com/madskristensen/GlyphList/">GitHub</a></p>
 	</footer>
-
-	<script src="/lazy.js" async></script>
 </body>
 </html>

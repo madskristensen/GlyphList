@@ -12,13 +12,17 @@
 		foreach (string dir in folder)
 		{
 			DirectoryInfo info = new DirectoryInfo(dir);
-
+			int count = 0;
 			<div>
 				<h2 id="@info.Name"><a href="#@info.Name">@info.Name</a></h2>
 				<ul>
-					@foreach (FileInfo file in info.EnumerateFiles())
+					@foreach (FileInfo file in info.EnumerateFiles().Where(f => f.Name != "_sprite.png"))
 					{
-						<li><img src="~/img/loading.gif" data-lazy="/img/glyphs/@info.Name/@file.Name" alt="" /> @Path.GetFileNameWithoutExtension(file.Name)</li>
+						count += 16;
+						<li>
+							<span style="background-image: url('/img/glyphs/_sprites/@(info.Name).png'); background-position: 0px -@(count)px"></span>
+							@Path.GetFileNameWithoutExtension(file.Name)
+						</li>
 					}
 				</ul>
 			</div>
