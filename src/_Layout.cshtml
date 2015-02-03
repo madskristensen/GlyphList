@@ -1,0 +1,147 @@
+﻿@{
+	if (!Request.IsLocal)
+	{
+		Response.Cache.SetValidUntilExpires(true);
+		Response.Cache.SetExpires(DateTime.Now.AddYears(1));
+		Response.Cache.SetCacheability(HttpCacheability.Public);
+	}
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>@Page.Title</title>
+	<meta charset="utf-8" />
+	<meta name="description" content="@Page.Description" />
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			text-align: center;
+			font-size: 1.5em;
+		}
+
+		h1 {
+			font-size: 2em;
+		}
+
+		h2 {
+			font-size: 1em;
+		}
+
+		h3 {
+			font-size: 3em;
+			margin: 0 0 0 .5em;
+			line-height: normal;
+		}
+
+		a {
+			color: cornflowerblue;
+			text-decoration: none;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+		ul {
+			list-style: none;
+		}
+
+		nav {
+			text-align: center;
+			font-size: 1.3em;
+			margin-bottom: 1em;
+			background-color: lightgray;
+		}
+
+			nav ul {
+				list-style: none;
+				padding: 0;
+				display: inline;
+			}
+
+			nav li {
+				display: inline-block;
+				padding: .5em 1.5em;
+			}
+
+		[role="main"] {
+			margin: 1em;
+			line-height: 1.7;
+		}
+
+			[role="main"] .images,
+			[role="main"] .glyphs {
+				-moz-column-width: 250px;
+				-webkit-column-width: 250px;
+				column-width: 250px;
+			}
+
+			[role="main"] li span {
+				background-repeat: no-repeat;
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+			}
+
+			[role="main"] div.glyphs > div {
+				display: inline-block;
+				width: 100%;
+			}
+
+			[role="main"] img {
+				width: 16px;
+				height: 16px;
+			}
+
+		footer {
+			width: 100%;
+			background: #333;
+			color: #fff;
+			padding: 1em 0;
+			text-align: center;
+			clear: both;
+			margin-top: 4em;
+		}
+
+			footer a {
+				color: #fff;
+				text-decoration: none;
+			}
+
+		:target + ul {
+			background-color: #dde7f2;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+
+	<header>
+		<h1>@Page.Title</h1>
+		<p>@Page.Description</p>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="/glyphs">StandardGlyphGroup</a></li>
+			<li><a href="/images">KnownMonikers</a></li>
+		</ul>
+	</nav>
+
+	<div role="main">
+		@RenderBody()
+	</div>
+
+	<footer>
+		<p>Powered by <a href="https://visualstudiogallery.msdn.microsoft.com/b6cb739c-359d-4cce-a06d-9c75fe55dc51">Glyph Exporter</a></p>
+		<p>Copyright &copy; @DateTime.Now.Year <a href="http://madskristensen.net">Mads Kristensen</a></p>
+		<p>Open source on <a href="https://github.com/madskristensen/GlyphList/">GitHub</a></p>
+	</footer>
+</body>
+</html>
