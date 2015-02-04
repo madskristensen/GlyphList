@@ -21,7 +21,7 @@
 			<h3 id="@info.Name[0].ToString().ToLowerInvariant()"><a href="#@info.Name[0].ToString().ToLowerInvariant()">@info.Name[0]</a></h3>
 			@Html.Raw("<ul class=\"images\">")
 		}
-		<li><span style="background-image: url('/img/images/_sprites/@(letter).png'); background-position: 0px @(count)px"></span> @Path.GetFileNameWithoutExtension(info.Name)</li>
+		<li><a href="~/img/images/@info.Name"><span style="background-image: url('/img/images/_sprites/@(letter).png'); background-position: 0px @(count)px"></span> @Path.GetFileNameWithoutExtension(info.Name)</a></li>
 		count -= 16;
 	}
 }

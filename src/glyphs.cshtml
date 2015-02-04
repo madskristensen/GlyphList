@@ -19,8 +19,10 @@
 					@foreach (FileInfo file in info.EnumerateFiles())
 					{
 						<li>
-							<span style="background-image: url('/img/glyphs/_sprites/@(info.Name).png'); background-position: 0px @(count)px"></span>
-							@Path.GetFileNameWithoutExtension(file.Name)
+							<a href="~/img/glyphs/@info.Name/@file.Name">
+								<span style="background-image: url('/img/glyphs/_sprites/@(info.Name).png'); background-position: 0px @(count)px"></span>
+								@Path.GetFileNameWithoutExtension(file.Name)
+							</a>
 						</li>
 						count -= 16;
 					}

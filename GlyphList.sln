@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GlyphList", "src", "{61DDE28D-22CD-4A53-9DE6-C8E900BCFA2A}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GlyphList", "src/", "{61DDE28D-22CD-4A53-9DE6-C8E900BCFA2A}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
