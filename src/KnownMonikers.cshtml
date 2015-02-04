@@ -9,7 +9,7 @@
 	var folder = Directory.EnumerateFiles(Server.MapPath("~/img/images"));
 	char letter = 'A';
 	int count = 0;
-	<h3 id="a"><a href="#a">A</a></h3>
+	<h2 id="a"><a href="#a">A</a></h2>
 	@Html.Raw("<ul class=\"images\">")
 	foreach (FileInfo info in folder.Select(f => new FileInfo(f)))
 	{
