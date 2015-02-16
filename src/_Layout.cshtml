@@ -4,6 +4,8 @@
 		Response.Cache.SetValidUntilExpires(true);
 		Response.Cache.SetExpires(DateTime.Now.AddYears(1));
 		Response.Cache.SetCacheability(HttpCacheability.Public);
+		Response.AddFileDependencies(Directory.GetFiles(Server.MapPath("~/")));
+		Response.Cache.SetLastModifiedFromFileDependencies();
 	}
 }
 
@@ -120,7 +122,7 @@
 
 			footer a {
 				color: #fff;
-				text-decoration: none;
+				text-decoration: underline;
 			}
 
 		:target + ul {
