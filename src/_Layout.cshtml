@@ -1,156 +1,167 @@
 ﻿@{
-	if (!Request.IsLocal)
-	{
-		Response.Cache.SetValidUntilExpires(true);
-		Response.Cache.SetExpires(DateTime.Now.AddYears(1));
-		Response.Cache.SetCacheability(HttpCacheability.Public);
-		Response.AddFileDependencies(Directory.GetFiles(Server.MapPath("~/")));
-		Response.Cache.SetLastModifiedFromFileDependencies();
-	}
+    if (!Request.IsLocal)
+    {
+        Response.Cache.SetValidUntilExpires(true);
+        Response.Cache.SetExpires(DateTime.Now.AddYears(1));
+        Response.Cache.SetCacheability(HttpCacheability.Public);
+        Response.AddFileDependencies(Directory.GetFiles(Server.MapPath("~/")));
+        Response.Cache.SetLastModifiedFromFileDependencies();
+    }
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>@Page.Title</title>
-	<meta charset="utf-8" />
-	<meta name="description" content="@Page.Description" />
-	<style>
-		body {
-			font-family: Arial, Helvetica, sans-serif;
-			margin: 0;
-			padding: 0;
-		}
+    <title>@Page.Title</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="@Page.Description" />
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-		header {
-			text-align: center;
-			font-size: 1.5em;
-		}
+        header {
+            text-align: center;
+            font-size: 1.5em;
+        }
 
-		h1 {
-			font-size: 2em;
-		}
+        h1 {
+            font-size: 2em;
+        }
 
-		h2 {
-			font-size: 1em;
-		}
+        h2 {
+            font-size: 1em;
+        }
 
-		a {
-			color: cornflowerblue;
-			text-decoration: none;
-		}
+        a {
+            color: cornflowerblue;
+            text-decoration: none;
+        }
 
-			a:hover {
-				text-decoration: underline;
-			}
+            a:hover {
+                text-decoration: underline;
+            }
 
-		ul {
-			list-style: none;
-			padding: 0 0 0 .7em;
-			margin: 0 0 1em 0;
-		}
+        ul {
+            list-style: none;
+            padding: 0 0 0 .7em;
+            margin: 0 0 1em 0;
+        }
 
-		nav {
-			text-align: center;
-			font-size: 1.3em;
-			margin-bottom: 1em;
-			background-color: lightgray;
-		}
+        nav {
+            text-align: center;
+            font-size: 1.3em;
+            margin-bottom: 1em;
+            background-color: lightgray;
+        }
 
-			nav ul {
-				list-style: none;
-				padding: 0;
-				display: inline;
-			}
+            nav ul {
+                list-style: none;
+                padding: 0;
+                display: inline;
+            }
 
-			nav li {
-				display: inline-block;
-				padding: .5em 1.5em;
-			}
+            nav li {
+                display: inline-block;
+                padding: .5em 1.5em;
+            }
 
-		[role="main"] {
-			margin: 1em;
-			line-height: 1.7;
-		}
+        [role="main"] {
+            margin: 1em;
+            line-height: 1.7;
+        }
 
-			[role="main"] .images,
-			[role="main"] .glyphs {
-				-moz-column-width: 250px;
-				-webkit-column-width: 250px;
-				column-width: 250px;
-			}
+            [role="main"] .images,
+            [role="main"] .glyphs {
+                -moz-column-width: 250px;
+                -webkit-column-width: 250px;
+                column-width: 250px;
+            }
 
-			[role="main"] li span {
-				background-repeat: no-repeat;
-				display: inline-block;
-				width: 16px;
-				height: 16px;
-			}
+            [role="main"] li span {
+                background-repeat: no-repeat;
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+            }
 
-			[role="main"] li a {
-				color: black;
-				text-decoration: none;
-			}
+            [role="main"] li a {
+                color: black;
+                text-decoration: none;
+            }
 
-			[role="main"] li a:hover {
-				color: #2d6de8;
-			}
+                [role="main"] li a:hover {
+                    color: #2d6de8;
+                }
 
-			[role="main"] div.glyphs > div {
-				display: inline-block;
-				width: 100%;
-			}
+            [role="main"] div.glyphs > div {
+                display: inline-block;
+                width: 100%;
+            }
 
-			[role="main"] img {
-				width: 16px;
-				height: 16px;
-			}
+            [role="main"] img {
+                width: 16px;
+                height: 16px;
+            }
 
-		footer {
-			width: 100%;
-			background: #333;
-			color: #fff;
-			padding: 1em 0;
-			text-align: center;
-			clear: both;
-			margin-top: 4em;
-		}
+        footer {
+            width: 100%;
+            background: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+            clear: both;
+            margin-top: 4em;
+        }
 
-			footer a {
-				color: #fff;
-				text-decoration: underline;
-			}
+            footer a {
+                color: #fff;
+                text-decoration: underline;
+            }
 
-		:target + ul {
-			background-color: #dde7f2;
-			border-radius: 10px;
-		}
-	</style>
+        :target + ul {
+            background-color: #dde7f2;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 
-	<header>
-		<h1>@Page.Title</h1>
-		<p>@Page.Description</p>
-	</header>
+    <header>
+        <h1>@Page.Title</h1>
+        <p>@Page.Description</p>
+    </header>
 
-	<nav>
-		<ul>
-			<li><a href="/standardglyphgroup/">StandardGlyphGroup</a></li>
-			<li><a href="/knownmonikers/">KnownMonikers</a></li>
-		</ul>
-	</nav>
+    <nav>
+        <ul>
+            <li><a href="/standardglyphgroup/">StandardGlyphGroup</a></li>
+            <li><a href="/knownmonikers/">KnownMonikers</a></li>
+        </ul>
+    </nav>
 
-	<div role="main">
-		@RenderBody()
-	</div>
+    <div role="main">
+        @RenderBody()
+    </div>
 
-	<footer>
-		<p>
-			Created by <a href="http://madskristensen.net">Mads Kristensen</a> |
-			Powered by <a href="https://visualstudiogallery.msdn.microsoft.com/b6cb739c-359d-4cce-a06d-9c75fe55dc51">Glyph Exporter</a>
-		</p>
-		<p>Open source on <a href="https://github.com/madskristensen/GlyphList/">GitHub</a></p>
-	</footer>
+    <footer>
+        <p>
+            Created by <a href="http://madskristensen.net">Mads Kristensen</a> |
+            Powered by <a href="https://visualstudiogallery.msdn.microsoft.com/b6cb739c-359d-4cce-a06d-9c75fe55dc51">Glyph Exporter</a>
+        </p>
+        <p>Open source on <a href="https://github.com/madskristensen/GlyphList/">GitHub</a></p>
+    </footer>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-322803-3', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>
