@@ -1,0 +1,12 @@
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\A.png|53894
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\P.png|48230
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\Q.png|1228
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\C.png|85447
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\S.png|71252
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\F.png|10350
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\W.png|8752
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\X.png|2404
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\Y.png|393
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\K.png|1062
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\L.png|6862
+C:\Users\madsk\GitHub\GlyphList\src\img\images\_sprites\M.png|10706
